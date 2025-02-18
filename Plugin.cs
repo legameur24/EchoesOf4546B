@@ -45,7 +45,9 @@ namespace EchoesOf4546B
             Harmony.CreateAndPatchAll(Assembly, $"{PluginInfo.PLUGIN_GUID}");
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
 
-            InitializePrefabs();
+            LanguageHandler.RegisterLocalizationFolder();
+
+            InitializePrefabs();       
         }
         public static AssetBundle AssetBundle { get; private set; }
         private void InitializePrefabs()
@@ -54,7 +56,6 @@ namespace EchoesOf4546B
             DiamondBlade.Register();
             AlienAlloy.Register();
 
-            LanguageHandler.RegisterLocalizationFolder();
             
             string IconAlloyAlienPath = AssetsFolderPath + "Alien_Alloy_Icon.png";
             alienAlloyIcon = ImageUtils.LoadTextureFromFile(IconAlloyAlienPath);
